@@ -67,3 +67,4 @@ jobs:
           app-name: 'hr-benefits'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_230ED756EA6E4D7781BF154C745695C9 }}
+          package: .
