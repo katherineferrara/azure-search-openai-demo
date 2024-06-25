@@ -1,11 +1,11 @@
 name: Validate AZD template
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths:
       - "infra/**"
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     paths:
       - "infra/**"
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
       - name: Build Bicep for linting
         uses: azure/CLI@v2
         with:
-          inlineScript: az config set bicep.use_binary_from_path=false && az bicep build -f infra/main.bicep --stdout
+          inlineScript: az config set bicep.use_binary_from_path=false && az bicep build -f infra/master.bicep --stdout
 
   psrule:
     runs-on: ubuntu-latest
