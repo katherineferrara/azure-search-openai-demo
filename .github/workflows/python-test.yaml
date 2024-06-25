@@ -2,14 +2,14 @@ name: Python check
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths-ignore:
       - "**.md"
       - ".azdo/**"
       - ".devcontainer/**"
       - ".github/**"
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     paths-ignore:
       - "**.md"
       - ".azdo/**"
