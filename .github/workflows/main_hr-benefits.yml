@@ -28,19 +28,18 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r app/backend/requirements.txt
+        run: pip install -r release.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip azure-search-openai-demo-main.zip ./* -r
+        run: release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
           name: python-app
-          path: |
-            azure-search-openai-demo-main.zip
+          path: release.zip
             !venv/
 
   deploy:
@@ -57,7 +56,7 @@ jobs:
           name: python-app
 
       - name: Unzip artifact for deployment
-        run: unzip azure-search-openai-demo-main.zip
+        run: unzip release.zip
 
       
       - name: 'Deploy to Azure Web App'
