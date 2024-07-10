@@ -33,14 +33,14 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip azure-search-openai-demo-main.zip.zip ./* -r
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
-            azure-search-openai-demo-main.zip.zip
+            release.zip
             !venv/
 
   deploy:
@@ -66,5 +66,4 @@ jobs:
         with:
           app-name: 'hr-benefits'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_230ED756EA6E4D7781BF154C745695C9 }}
-          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6B61FC422E7F45C1B236AD14F6A37476 }}
