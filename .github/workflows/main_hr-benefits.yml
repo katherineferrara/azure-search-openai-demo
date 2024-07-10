@@ -1,4 +1,4 @@
-name: Hr-benefits
+name: hr-benefits
 
 on:
   [push]
